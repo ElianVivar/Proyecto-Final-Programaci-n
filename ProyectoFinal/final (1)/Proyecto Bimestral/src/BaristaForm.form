@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="CafeGest - Barista"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="pnlPrincipal">
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblTitulo">
+          <Properties><Property name="text" type="java.lang.String" value="Panel de Barista"/></Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSesion"/>
+        <Component class="javax.swing.JButton" name="btnCerrarSesion">
+          <Properties><Property name="text" type="java.lang.String" value="Cerrar sesion"/></Properties>
+          <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarSesionActionPerformed"/></Events>
+        </Component>
+        <Container class="javax.swing.JPanel" name="pnlCliente">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo"><TitledBorder title="Datos del cliente"/></Border>
+            </Property>
+          </Properties>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlProductos">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo"><TitledBorder title="Productos"/></Border>
+            </Property>
+          </Properties>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblProducto">
+              <Properties><Property name="text" type="java.lang.String" value="Producto:"/></Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cboProductos">
+              <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cboProductosActionPerformed"/></Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCantidad">
+              <Properties><Property name="text" type="java.lang.String" value="Cantidad:"/></Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spnCantidad"/>
+            <Component class="javax.swing.JLabel" name="lblTamano">
+              <Properties><Property name="text" type="java.lang.String" value="Tamano:"/></Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cboTamano">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="pequeno"/>
+                    <StringItem index="1" value="mediano"/>
+                    <StringItem index="2" value="grande"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblLeche">
+              <Properties><Property name="text" type="java.lang.String" value="Leche:"/></Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cboLeche">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="entera"/>
+                    <StringItem index="1" value="deslactosada"/>
+                    <StringItem index="2" value="almendra"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkCalentado">
+              <Properties><Property name="text" type="java.lang.String" value="Calentar alimento"/></Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAgregar">
+              <Properties><Property name="text" type="java.lang.String" value="Agregar al pedido"/></Properties>
+              <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/></Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnFactura">
+              <Properties><Property name="text" type="java.lang.String" value="Confirmar y facturar"/></Properties>
+              <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFacturaActionPerformed"/></Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnNuevo">
+              <Properties><Property name="text" type="java.lang.String" value="Nuevo pedido"/></Properties>
+              <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoActionPerformed"/></Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlPedido">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo"><TitledBorder title="Pedido actual"/></Border>
+            </Property>
+          </Properties>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

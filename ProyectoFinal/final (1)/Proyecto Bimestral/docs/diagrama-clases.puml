@@ -1,0 +1,187 @@
+@startuml
+title CafeGest - Diagrama de clases
+
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam packageStyle rectangle
+
+package "Usuarios" {
+  abstract class Usuario {
+    - idUsuario : String
+    - nombre : String
+    - contrasena : String
+    + getIdUsuario() : String
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + iniciarSesion(input : String) : boolean
+    + cambiarContrasena(actual : String, nueva : String) : void
+    + obtenerRol() : String
+  }
+
+  class Administrador {
+    + obtenerRol() : String
+  }
+
+  class Barista {
+    + obtenerRol() : String
+  }
+}
+
+package "Catálogo" {
+  abstract class Producto {
+    - id : String
+    - nombre : String
+    - precioBase : double
+    + getId() : String
+    + getNombre() : String
+    + setNombre(nombre : String) : void
+    + getPrecioBase() : double
+    + setPrecioBase(precio : double) : void
+    + calcularPrecioFinal() : double
+  }
+
+  class Bebida {
+    - tamano : String
+    - tipoLeche : String
+    + calcularPrecioFinal() : double
+  }
+
+  class Alimento {
+    - requiereCalentado : boolean
+    + calcularPrecioFinal() : double
+  }
+
+  class MenuCafe {
+    - productos : List~Producto~
+    + listarProductos() : List~Producto~
+    + registrarProducto(usuario, producto) : void
+    + modificarProducto(usuario, id, nombre, precio) : void
+    + eliminarProducto(usuario, id) : boolean
+    + buscarProducto(id) : Producto
+  }
+}
+
+package "Pedidos y ventas" {
+  class Pedido {
+    - idPedido : String
+    - estado : String
+    - total : double
+    - cliente : String
+    - cedulaRuc : String
+    - fechaConfirmacion : LocalDateTime
+    - detalles : List~DetallePedido~
+    + asignarCliente(cliente, cedulaRuc) : void
+    + agregarDetalle(detalle : DetallePedido) : void
+    + calcularTotal() : double
+    + confirmar() : void
+  }
+
+  class DetallePedido {
+    - producto : Producto
+    - cantidad : int
+    - subtotal : double
+    + calcularSubtotal() : double
+  }
+
+  class HistorialVentas {
+    - historial : List~Pedido~
+    + registrarVenta(pedido : Pedido) : void
+    + obtenerHistorial() : List~Pedido~
+    + buscarPedido(idPedido : String) : Pedido
+    + cantidadVentas() : int
+    + calcularIngresos() : double
+  }
+}
+
+package "Datos" {
+  class BaseDatosCafe <<singleton>> {
+    - INSTANCIA : BaseDatosCafe
+    - usuarios : List~Usuario~
+    - productos : List~Producto~
+    - contadorPedidos : int
+    - historialVentas : HistorialVentas
+    + getInstancia() : BaseDatosCafe
+    + autenticar(idUsuario, contrasena) : Usuario
+    + listarProductos() : List~Producto~
+    + registrarProducto(producto : Producto) : void
+    + modificarProducto(id, nombre, precio) : void
+    + eliminarProducto(id) : boolean
+    + crearPedido() : Pedido
+    + registrarVenta(pedido : Pedido) : void
+    + getHistorialVentas() : HistorialVentas
+  }
+}
+
+package "Interfaz Swing" {
+  class Main <<entry point>> {
+    + main(args : String[]) : void
+  }
+
+  class LoginForm <<JFrame>> {
+    - baseDatos : BaseDatosCafe
+  }
+
+  class MenuSesionForm <<JFrame>> {
+    - usuario : Usuario
+  }
+
+  class AdminForm <<JFrame>> {
+    - administrador : Administrador
+    - baseDatos : BaseDatosCafe
+  }
+
+  class BaristaForm <<JFrame>> {
+    - barista : Barista
+    - baseDatos : BaseDatosCafe
+    - pedidoActual : Pedido
+  }
+
+  class HistorialPedidosForm <<JFrame>> {
+    - historial : HistorialVentas
+    + cargarHistorial() : void
+    + mostrarDetalle(fila : int) : void
+  }
+}
+
+Usuario <|-- Administrador
+Usuario <|-- Barista
+Producto <|-- Bebida
+Producto <|-- Alimento
+
+Pedido "1" *-- "0..*" DetallePedido : contiene
+DetallePedido "0..*" --> "1" Producto : producto
+HistorialVentas "1" *-- "0..*" Pedido : registra
+
+BaseDatosCafe "1" *-- "0..*" Usuario : carga
+BaseDatosCafe "1" *-- "0..*" Producto : mantiene
+BaseDatosCafe "1" *-- "1" HistorialVentas : conserva
+BaseDatosCafe ..> Pedido : crea
+MenuCafe ..> Administrador : valida rol
+MenuCafe ..> Producto : administra
+
+Main ..> LoginForm : inicia
+LoginForm --> BaseDatosCafe : autentica
+LoginForm ..> MenuSesionForm : abre
+MenuSesionForm --> Usuario : sesión activa
+MenuSesionForm ..> AdminForm : abre
+MenuSesionForm ..> BaristaForm : abre
+MenuSesionForm ..> HistorialPedidosForm : abre
+AdminForm --> Administrador : usa
+AdminForm --> BaseDatosCafe : CRUD de productos
+BaristaForm --> Barista : usa
+BaristaForm --> BaseDatosCafe : catálogo y ventas
+BaristaForm --> Pedido : pedido actual
+BaristaForm ..> HistorialPedidosForm : abre
+HistorialPedidosForm --> HistorialVentas : consulta
+
+note right of BaseDatosCafe
+  Lee usuarios y productos desde CSV.
+  Persiste solo el catálogo de productos.
+end note
+
+note right of HistorialVentas
+  El historial permanece en memoria
+  durante la ejecución actual.
+end note
+@enduml

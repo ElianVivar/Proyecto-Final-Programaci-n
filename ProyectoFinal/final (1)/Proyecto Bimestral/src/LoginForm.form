@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="CafeGest - Inicio de sesion"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="pnlPrincipal">
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblTitulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CafeGest"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblSubtitulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sistema integral de gestion y pedidos para cafeterias"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="pnlLogin">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Inicio de sesion"/>
+              </Border>
+            </Property>
+          </Properties>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblUsuario">
+              <Properties><Property name="text" type="java.lang.String" value="Usuario:"/></Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtUsuario"/>
+            <Component class="javax.swing.JLabel" name="lblContrasena">
+              <Properties><Property name="text" type="java.lang.String" value="Contrasena:"/></Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="txtContrasena"/>
+            <Component class="javax.swing.JButton" name="btnIngresar">
+              <Properties><Property name="text" type="java.lang.String" value="Ingresar"/></Properties>
+              <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarActionPerformed"/></Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCredenciales">
+              <Properties><Property name="text" type="java.lang.String" value="Admin: admin / admin123    Barista: barista / barista123"/></Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

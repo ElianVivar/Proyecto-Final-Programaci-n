@@ -1,0 +1,9 @@
+tipo,id,nombre,precioBase,tamano,tipoLeche,requiereCalentado
+BEBIDA,B001,Capuccinoooo,2.25,grande,almendra,false
+BEBIDA,B002,Capuccinoooo,100.00,mediano,entera,false
+BEBIDA,B003,Cafe Americano,1.50,pequeno,entera,false
+BEBIDA,B004,Mocaccino,2.80,grande,deslactosada,false
+ALIMENTO,A001,Croissant,1.75,,,true
+ALIMENTO,A002,Sanduche de jamon,2.50,,,true
+ALIMENTO,C001,nicolas,0.00,,,true
+BEBIDA,C000002,bebida con leche,2.50,pequeno,entera,false

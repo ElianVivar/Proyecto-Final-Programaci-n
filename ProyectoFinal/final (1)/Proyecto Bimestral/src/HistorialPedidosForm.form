@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="CafeGest - Historial de pedidos"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="pnlPrincipal">
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblTitulo">
+          <Properties><Property name="text" type="java.lang.String" value="Historial de pedidos"/></Properties>
+        </Component>
+        <Container class="javax.swing.JPanel" name="pnlPedidos">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo"><TitledBorder title="Pedidos confirmados"/></Border>
+            </Property>
+          </Properties>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="spPedidos">
+              <AuxValues><AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/></AuxValues>
+              <SubComponents><Component class="javax.swing.JTable" name="tblPedidos"/></SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlDetalle">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo"><TitledBorder title="Detalle del pedido seleccionado"/></Border>
+            </Property>
+          </Properties>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGroupLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="spDetalle">
+              <AuxValues><AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/></AuxValues>
+              <SubComponents><Component class="javax.swing.JTable" name="tblDetalle"/></SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="lblResumen"/>
+        <Component class="javax.swing.JButton" name="btnActualizar">
+          <Properties><Property name="text" type="java.lang.String" value="Actualizar"/></Properties>
+          <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarActionPerformed"/></Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCerrar">
+          <Properties><Property name="text" type="java.lang.String" value="Cerrar"/></Properties>
+          <Events><EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/></Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
